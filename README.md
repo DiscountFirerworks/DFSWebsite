@@ -5,5 +5,5 @@ Authors: Christopher Forsythe and Joel Forsythe
 - Front end website  
 - Database in backend
 - User log in
-- Display database entries on website
+- Display database entries on website  
 Discount Fireworks Superstore website and database.  
