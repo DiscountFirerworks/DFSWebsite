@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Discount Fireworks Superstore</title>
+  <meta charset="utf-8"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href={{ url_for('static',filename='styles/main.css') }}>
+<script>
+  $(document).ready(function(){
+    $('#see_all').click(function(){
+      $.ajax({
+        url: '/gettable/',
+        success: function(result){
+          var table = result.table
+          for(key in table){
+            if(table.hasOwnProperty(key))
+              console.log(table[key]);
+          }
+        },
+        error: function(result){
+          console.log('FAIL');
+        }
+      });
+    });
+  });
+</script>
+
+</head>
+<body>
+	<header class="container">
+    <div class="row">
+        <img class="logo-img" src="static/styles/DFSLogo_A-3.png">
+	<h1 class="col-sm-4">Discount Firework Superstore</h1>
+      <nav class="col-sm-8 text-right">
+      	<p>Newest</p>
+        <p>Catalogue</p>
+        <p>Contact</p>
+        <p>Login</p>
+      </nav>
+    </div>
+  </header>
+
+  <section class="jumbotron">
+    <div class="container">
+    	<div class="row text-center">
+        <h2>Glorious Fireworks!</h2>
+        <h3>This Year's Best</h3>
+        <a id="see_all" class="btn btn-primary" href="#">See all</a>
+      </div>
+    </div>
+  </section>
+
+
+</body>
+</html>
