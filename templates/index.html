@@ -12,12 +12,31 @@
     $('#see_all').click(function(){
       $.ajax({
         url: '/gettable/',
+        data: {'limit':'LIMIT 15'},
         success: function(result){
-          var table = result.table
-          for(key in table){
-            if(table.hasOwnProperty(key))
-              console.log(table[key]);
+          var table = result.table;
+          var columnnames = result.columnnames;
+          htmlTable = "<thead><tr>";
+          for(key in columnnames){
+            htmlTable += "<th>" + columnnames[key] + "</th>";
           }
+          htmlTable += "</tr></thead><tbody>";
+          for(key in table){
+            htmlTable += "<tr>"
+            for(column in columnnames){
+              if(table[key][column] != null){
+                htmlTable += "<td>" + table[key][column] + "</td>";
+              }
+              else{
+                htmlTable += "<td>" + "(empty)" + "</td>";
+              }
+            }
+            htmlTable += "</tr>"
+          }
+          htmlTable += "</tbody>"
+          document.getElementById('table').style.display = 'table';
+          document.getElementById('main').style.display = 'none'
+          document.getElementById('table').innerHTML = htmlTable;
         },
         error: function(result){
           console.log('FAIL');
@@ -42,7 +61,7 @@
     </div>
   </header>
 
-  <section class="jumbotron">
+  <section id="main" class="jumbotron">
     <div class="container">
     	<div class="row text-center">
         <h2>Glorious Fireworks!</h2>
@@ -51,7 +70,10 @@
       </div>
     </div>
   </section>
-
+  <div class="page-wrap">
+    <table id="table" class="table">
+    </table>
+  </div>
 
 </body>
 </html>

@@ -86,6 +86,24 @@ section .row img {
   color: #ffffff;
   margin: 0 0 30px;
 }
+.page-wrap{
+  margin:50px;
+}
+table{
+  width:100%;
+  border-collapse: collapse;
+  display: none;
+}
+th {
+  background: #333;
+	color: white;
+	font-weight: bold;
+}
+td, th{
+  padding: 6px;
+	border: 1px solid #ccc;
+	text-align: left;
+}
 
 footer {
   font-size: 12px;
