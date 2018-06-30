@@ -1,0 +1,171 @@
+<html>
+  <head>
+    <script>
+    function calcAmount(input, number, label, type){
+      var x = document.getElementById(input).value;
+      x = number * x;
+      var result = x.toFixed(2)
+      document.getElementById(label).innerHTML = result;
+      updateResult(type);
+      updateCoin(type);
+      updateCash(type);
+    }
+    function updateResult(type){
+      result = 0.00;
+      for(var i = 0;i<9;i++){
+        var x = parseFloat(document.getElementById(type + "r" + String(i)).textContent);
+        result += x;
+      }
+      var decimalResult = result.toFixed(2);
+      document.getElementById(type + "result").innerHTML = decimalResult;
+    }
+    function updateCash(type){
+      result = 0.00;
+      for(var i = 0;i<5;i++){
+        var x = parseFloat(document.getElementById(type + "r" + String(i)).textContent);
+        result += x;
+      }
+      var decimalResult = result.toFixed(2);
+      document.getElementById(type + "cashresult").innerHTML = decimalResult;
+    }
+    function updateCoin(type){
+      result = 0.00;
+      for(var i = 5 ;i<9;i++){
+        var x = parseFloat(document.getElementById(type + "r" + String(i)).textContent);
+        result += x;
+      }
+      var decimalResult = result.toFixed(2);
+      document.getElementById(type + "coinresult").innerHTML = decimalResult;
+    }
+
+    </script>
+  </head>
+  <body>
+    <div style="display:block;">
+      <div style="text-align:left">
+        <h1>Start Cash</h1>
+        <div style="clear:both">
+          <label for="shundred">$100 x </label>
+          <input id="shundred" onkeyup="calcAmount('shundred', '100', 'sr0', 's')" type="number" placeholder="Amount of hundreds"></input>
+          <label id="sr0">0.00</label>
+        </div>
+        <div style="clear:both">
+          <label for="stwenty">$20 x </label>
+          <input id="stwenty" onkeyup="calcAmount('stwenty', '20', 'sr1', 's')" type="number" placeholder="Amount of twenties"></input>
+          <label id="sr1">0.00</label>
+        </div>
+        <div style="clear:both">
+          <label for="stens">$10 x </label><input id="stens" onkeyup="calcAmount('stens', '10', 'sr2', 's')" type="number" placeholder="Amount of tens"></input><label id="sr2">0.00</label>
+        </div>
+        <div style="clear:both">
+          <label for="sfives">$5 x </label><input id="sfives" onkeyup="calcAmount('sfives', '5', 'sr3', 's')" type="number" placeholder="Amount of fives"></input><label id="sr3">0.00</label>
+        </div>
+        <div style="clear:both">
+          <label for="sones">$1 x </label><input id="sones" onkeyup="calcAmount('sones', '1', 'sr4', 's')" type="number" placeholder="Amount of ones"></input><label id="sr4">0.00</label>
+        </div>
+        <div style="clear:both">
+          <label for="squarters">$.25 x </label><input id="squarters" onkeyup="calcAmount('squarters', '.25', 'sr5', 's')" type="number" placeholder="Amount of quarters"></input><label id="sr5">0.00</label>
+        </div>
+        <div style="clear:both">
+          <label for="sdimes">$.10 x </label><input id="sdimes" onkeyup="calcAmount('sdimes', '.10', 'sr6', 's')" type="number" placeholder="Amount of dimes"></input><label id="sr6">0.00</label>
+        </div>
+        <div style="clear:both">
+          <label for="snickels">$.05 x </label><input id="snickels" onkeyup="calcAmount('snickels', '.05', 'sr7', 's')" type="number" placeholder="Amount of nickels"></input><label id="sr7">0.00</label>
+        </div>
+        <div style="clear:both">
+          <label for="sones">$.01 x </label><input id="spennies" onkeyup="calcAmount('spennies', '.01', 'sr8', 's')" type="number" placeholder="Amount of pennies"></input><label id="sr8">0.00</label>
+        </div>
+        <div style="clear:both">
+          <label>Total Cash: </label><label id ="scashresult">0.00</label>
+        </div>
+        <div style="clear:both">
+          <label>Total Coin: </label><label id ="scoinresult">0.00</label>
+        </div>
+        <div style="clear:both">
+          <label>Total: </label><label id="sresult">0.00</label>
+        </div>
+    </div>
+  </div>
+
+  <div style="display:block;">
+    <div>
+      <h1>Final Cash</h1>
+      <div style="clear:both">
+        <label for="ehundred">$100 x </label><input id="ehundred" onkeyup="calcAmount('ehundred', '100', 'er0', 'e')" type="number" placeholder="Amount of hundreds"></input><label id="er0">0.00</label>
+      </div>
+      <div style="clear:both">
+        <label for="etwenty">$20 x </label><input id="etwenty" onkeyup="calcAmount('etwenty', '20', 'er1', 'e')" type="number" placeholder="Amount of twenties"></input><label id="er1">0.00</label>
+      </div>
+      <div style="clear:both">
+        <label for="etens">$10 x </label><input id="etens" onkeyup="calcAmount('etens', '10', 'er2', 'e')" type="number" placeholder="Amount of tens"></input><label id="er2">0.00</label>
+      </div>
+      <div style="clear:both">
+        <label for="efives">$5 x </label><input id="efives" onkeyup="calcAmount('efives', '5', 'er3', 'e')" type="number" placeholder="Amount of fives"></input><label id="er3">0.00</label>
+      </div>
+      <div style="clear:both">
+        <label for="eones">$1 x </label><input id="eones" onkeyup="calcAmount('eones', '1', 'er4', 'e')" type="number" placeholder="Amount of ones"></input><label id="er4">0.00</label>
+      </div>
+      <div style="clear:both">
+        <label for="equarters">$.25 x </label><input id="equarters" onkeyup="calcAmount('equarters', '.25', 'er5', 'e')" type="number" placeholder="Amount of quarters"></input><label id="er5">0.00</label>
+      </div>
+      <div style="clear:both">
+        <label for="edimes">$.10 x </label><input id="edimes" onkeyup="calcAmount('edimes', '.10', 'er6', 'e')" type="number" placeholder="Amount of dimes"></input><label id="er6">0.00</label>
+      </div>
+      <div style="clear:both">
+        <label for="enickels">$.05 x </label><input id="enickels" onkeyup="calcAmount('enickels', '.05', 'er7', 'e')" type="number" placeholder="Amount of nickels"></input><label id="er7">0.00</label>
+      </div>
+      <div style="clear:both">
+        <label for="eopennies">$.01 x </label><input id="epennies" onkeyup="calcAmount('epennies', '.01', 'er8', 'e')" type="number" placeholder="Amount of pennies"></input><label id="er8">0.00</label>
+      </div>
+      <div style="clear:both">
+        <label>Total Cash: </label><label id ="ecashresult">0.00</label>
+      </div>
+      <div style="clear:both">
+        <label>Total Coin: </label><label id ="ecoinresult">0.00</label>
+      </div>
+      <div style="clear:both">
+        <label>Total: </label><label id="eresult">0.00</label>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:block;">
+    <div>
+      <h1>Next Day Start</h1>
+      <div style="clear:both">
+        <label for="ndtwenty">$20 x </label><input id="ndtwenty" onkeyup="calcAmount('ndtwenty', '20', 'ndr1', 'nd')" type="number" placeholder="Amount of twenties"></input><label id="ndr1">0.00</label>
+      </div>
+      <div style="clear:both">
+        <label for="ndtens">$10 x </label><input id="ndtens" onkeyup="calcAmount('ndtens', '10', 'ndr2', 'nd')" type="number" placeholder="Amount of tens"></input><label id="ndr2">0.00</label>
+      </div>
+      <div style="clear:both">
+        <label for="ndfives">$5 x </label><input id="ndfives" onkeyup="calcAmount('ndfives', '5', 'ndr3', 'nd')" type="number" placeholder="Amount of fives"></input><label id="ndr3">0.00</label>
+      </div>
+      <div style="clear:both">
+        <label for="ndones">$1 x </label><input id="ndones" onkeyup="calcAmount('ndones', '1', 'ndr4', 'nd')" type="number" placeholder="Amount of ones"></input><label id="ndr4">0.00</label>
+      </div>
+      <div style="clear:both">
+        <label for="ndquarters">$.25 x </label><input id="ndquarters" onkeyup="calcAmount('ndquarters', '.25', 'ndr5', 'nd')" type="number" placeholder="Amount of quarters"></input><label id="ndr5">0.00</label>
+      </div>
+      <div style="clear:both">
+        <label for="nddimes">$.10 x </label><input id="nddimes" onkeyup="calcAmount('nddimes', '.10', 'ndr6', 'nd')" type="number" placeholder="Amount of dimes"></input><label id="ndr6">0.00</label>
+      </div>
+      <div style="clear:both">
+        <label for="ndnickels">$.05 x </label><input id="ndnickels" onkeyup="calcAmount('ndnickels', '.05', 'ndr7', 'nd')" type="number" placeholder="Amount of nickels"></input><label id="ndr7">0.00</label>
+      </div>
+      <div style="clear:both">
+        <label for="ndpennies">$.01 x </label><input id="ndpennies" onkeyup="calcAmount('ndpennies', '.01', 'ndr8', 'nd')" type="number" placeholder="Amount of pennies"></input><label id="ndr8">0.00</label>
+      </div>
+      <div style="clear:both">
+        <label>Total Cash: </label><label id ="ndcashresult">0.00</label>
+      </div>
+      <div style="clear:both">
+        <label>Total Coin: </label><label id ="ndcoinresult">0.00</label>
+      </div>
+      <div style="clear:both">
+        <label>Total: </label><label id="ndresult">0.00</label>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>
